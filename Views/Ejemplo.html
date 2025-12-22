@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Horario Médico</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-md-8 col-lg-6">
+                <h2 class="text-center mb-4">Registro de Horario Médico</h2>
+                
+                <form id="horarioForm">
+                    <div class="mb-3">
+                        <label for="especialidad" class="form-label">Especialidad:</label>
+                        <select id="especialidad" name="especialidad" class="form-select" required onchange="seleccionarMedico(event)">
+                            <option value="">Seleccione una especialidad</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="cbMedicos" class="form-label">Doctor:</label>
+                        <select id="cbMedicos" name="cbMedicos" class="form-select" required>
+                            <option value="">Seleccione un doctor</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="fechaAtencion" class="form-label">Fecha de Atención:</label>
+                        <input type="date" id="fechaAtencion" name="fechaAtencion" class="form-control" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="Cupos" class="form-label">Cupos:</label>
+                        <input type="number" id="Cupos" name="Cupos" class="form-control" required min="0">
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="horaInicio" class="form-label">Hora Inicio:</label>
+                            <input type="time" id="horaInicio" name="horaInicio" class="form-control" required>
+                        </div>
+
+                        <div class="col-md-6 mb-3">
+                            <label for="horaFin" class="form-label">Hora Fin:</label>
+                            <input type="time" id="horaFin" name="horaFin" class="form-control" required>
+                        </div>
+                    </div>
+
+                    <div class="d-grid">
+                        <button type="submit" class="btn btn-primary btn-lg">Registrar Horario</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Función de ejemplo para seleccionar médico
+        function seleccionarMedico(event) {
+            console.log('Especialidad seleccionada:', event.target.value);
+            // Aquí puedes agregar la lógica para cargar los médicos según la especialidad
+        }
+
+        // Manejo del formulario
+        document.getElementById('horarioForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = {
+                especialidad: document.getElementById('especialidad').value,
+                medico: document.getElementById('cbMedicos').value,
+                fecha: document.getElementById('fechaAtencion').value,
+                cupos: document.getElementById('Cupos').value,
+                horaInicio: document.getElementById('horaInicio').value,
+                horaFin: document.getElementById('horaFin').value
+            };
+            
+            console.log('Datos del formulario:', formData);
+            alert('Horario registrado correctamente');
+        });
+    </script>
+</body>
+</html>
