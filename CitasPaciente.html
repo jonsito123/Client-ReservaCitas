@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sistema de Citas Médicas</title>
-    <link rel="stylesheet" href="../css/Doctors.css">
-    <link rel="stylesheet" href="../css/Citas.css">
-    <link rel="stylesheet" href="../css/FrmPaciente.css">
-    <link rel="stylesheet" href="../css/Calendario.css">
+    <link rel="stylesheet" href="./css/Doctors.css">
+    <link rel="stylesheet" href="./css/Citas.css">
+    <link rel="stylesheet" href="./css/FrmPaciente.css">
+    <link rel="stylesheet" href="./css/Calendario.css">
     <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.3/dist/sweetalert2.min.css" rel="stylesheet">
 
 </head>
@@ -586,11 +586,17 @@
 
                     if(fechaMedico===Fecha) {
                        
-                        day.style.color="red"
-                        day.addEventListener("click",function(event){
-                        ObtenerCitasMedicos(Fecha,IdMedico)
-                        event.preventDefault();
-                })
+                       day.style.backgroundColor = "#4CAF50";
+                       day.style.color = "white";
+                       day.style.fontWeight = "bold";
+                       day.style.borderRadius = "8px";
+                       day.style.boxShadow = "0 4px 8px rgba(76, 175, 80, 0.3)";
+                       day.style.transform = "scale(1.05)";
+                       day.style.cursor = "pointer";
+                       day.addEventListener("click",function(event){
+                       ObtenerCitasMedicos(Fecha,IdMedico)
+                       event.preventDefault();
+                        })
                     }
                     
                 
