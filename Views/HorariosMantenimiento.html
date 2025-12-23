@@ -568,7 +568,7 @@ function newNuevoHorario(event){
         Cupos
      }
 
-     var data=await fetch(`http://localhost:5000/api/Horario/${IdHorarioActualizar}`,{
+     var data=await fetch(`https://api-rest-ventas-production.up.railway.app/api/Horario/${IdHorarioActualizar}`,{
        method: "PUT",
         body: JSON.stringify(newHorario),
         headers: {
