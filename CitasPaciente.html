@@ -337,6 +337,11 @@
                 alert("Ingresar todos los campos solicitados")
                 return
             }
+            if(!validateEmail(Correo)){
+                 alert("Ingresa un correo Correcto")
+
+                 return
+            }
                 const Cita={
                     id_Horario,
                     PacienteNombres,
@@ -702,7 +707,10 @@
         })
 
     }
-
+      function validateEmail(email) {
+        const pattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+.[a-zA-Z]{2,6}$/;
+        return pattern.test(email);
+        }
     </script>
     
 </body>
