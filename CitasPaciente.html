@@ -342,6 +342,10 @@
 
                  return
             }
+            if(!validaDNI(NumeroDocumento)){
+
+                 alert("Ingresar el numero de Dni correcto")
+            }
                 const Cita={
                     id_Horario,
                     PacienteNombres,
@@ -711,6 +715,14 @@
         const pattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+.[a-zA-Z]{2,6}$/;
         return pattern.test(email);
         }
+
+    function validaDNI(dni){
+        var ex_regular_dni; 
+        ex_regular_dni = /^\d{8}(?:[-\s]\d{4})?$/;
+        var resultado=ex_regular_dni.test(dni)
+        return resultado
+    }
+    
     </script>
     
 </body>
