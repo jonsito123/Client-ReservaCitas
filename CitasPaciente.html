@@ -99,7 +99,7 @@
                             <label>Número de Documento</label>
                             <div class="input-group">
                                 <input type="text" id="txtDocumento" placeholder="74692318" name="documento" required />
-                                <button class="btn btn-primary">RENIEC</button>
+                                
                             </div>
                         </div>
                     </div>
@@ -331,7 +331,12 @@
                 var NumeroDocumento=document.getElementById("txtDocumento").value;
                 var Celular=document.getElementById("txtCelular").value
                 var Correo=document.getElementById("txtCorreo").value
-                
+            
+
+            if(PacienteApellidos==="" || apellidoMaterno==="" || apellidoPaterno==="" || TipoDocumento==="" || NumeroDocumento==="" || Celular==="" || Correo===""){
+                alert("Ingresar todos los campos solicitados")
+                return
+            }
                 const Cita={
                     id_Horario,
                     PacienteNombres,
