@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="./css/Doctors.css">
     <link rel="stylesheet" href="./css/Citas.css">
     <link rel="stylesheet" href="./css/FrmPaciente.css">
+    <link rel="stylesheet" href="./css/Modal.css">
     <link rel="stylesheet" href="./css/Calendario.css">
     <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.3/dist/sweetalert2.min.css" rel="stylesheet">
 
@@ -26,18 +27,18 @@
 
         <!-- Vista 2: Médicos -->
         <div id="doctores-view" class="view">
-            <button class="back-btn" onclick="showView('specialties')">← Volver a Especialidades</button>
+            <button class="back-btn" onclick="showView('specialties','Seleccione una Especialidad')">← Volver a Especialidades</button>
             <h2 style="color: white; margin-bottom: 20px;" id="specialty-title"></h2>
             <div class="doctors-grid" id="doctors-grid"></div>
         </div>
 
         <!-- Vista 3: Calendario -->
         <div id="calendar-view" class="view">
-            <button class="back-btn" onclick="showView('doctores')">← Volver a Médicos</button>
+            <button class="back-btn" onclick="showView('doctores','Seleccione un Doctor')">← Volver a Médicos</button>
             
             <div class="calendar-container">
                 <div class="calendar-header">
-                    <h3>📅 Horarios Médicos - Diciembre 2024</h3>
+                    <h3>📅 Horarios Médicos</h3>
                 </div>
                 
             <div class="schedule-container" id="scheduleContainer">
@@ -72,20 +73,17 @@
             <div class="modal-header">
                 <div>
                     <h2>Datos del Paciente</h2>
-                    <a href="#" class="link-reniec">🔍 Identidad Verificada (RENIEC)</a>
                 </div>
                 <button class="btn-cerrar" onclick="CerrarFormulario()">&times;</button>
             </div>
 
             <!-- Body del modal -->
             <div class="modal-body">
-                <div class="section">
-                    <div class="section-title">
-                        📄 Validación de Identidad
-                    </div>
+                                
                     <input type="hidden" id="txtIdHorario"/>
                     <input type="hidden" id="txtIdMedico"/>
-                    <div class="row">
+            
+                <div class="row">
                         <div class="form-group">
                             <label>Tipo de Documento</label>
                             <select id="tipoDoc">
@@ -102,7 +100,6 @@
                                 
                             </div>
                         </div>
-                    </div>
                 </div>
 
                 <div class="form-group full">
@@ -136,6 +133,25 @@
                         <input type="tel" id="txtCelular" placeholder="900 000 000" name="celular" required />
                     </div>
                 </div>
+                <div class="form-group">
+                    <label>Tipo de Seguro</label>
+                    <div class="input-group seguro">
+                    <select id="txtTipoDeSeguro">
+                        <option value="">.....</option>
+                        <option value="1">
+                         Particular                       
+                        </option>
+                        <option value="2">EPS</option>
+                    </select>
+                    </div>
+
+                </div>
+               
+                <div class="checkbox">
+
+                    <label> <input type="checkbox" id="txtPoliticas">Estoy de acuerdo con las Políticas de Protección de Datos Personales y Atención en Consulta Externa </label>
+                </div>
+                
             </div>
 
             <div class="modal-footer">
@@ -208,7 +224,7 @@
                     `;
                 }).join('');
               
-                showView('doctores');
+                showView('doctores',"Seleccionar un doctor");
 
             }
             else {
@@ -257,7 +273,7 @@
                 renderCalendar(mesNumero,añoNumero,IdDoctor);
 
                
-                showView('calendar');
+                showView('calendar',"Selecione un Horario");
               }
               else {
                   alert("No existe horarios para este medico")
@@ -276,12 +292,14 @@
    
 
         // Cambiar vista
-        function showView(viewName) {
+        function showView(viewName,pagina="Selecione Especialidad") {
 
             document.querySelectorAll('.view').forEach(view => {
                 view.classList.remove('active');
             });
             document.getElementById(`${viewName}-view`).classList.add('active');
+
+            document.getElementById("titulo").textContent=pagina
         }
 
 
@@ -331,8 +349,10 @@
                 var NumeroDocumento=document.getElementById("txtDocumento").value;
                 var Celular=document.getElementById("txtCelular").value
                 var Correo=document.getElementById("txtCorreo").value
-            
+                var Politicas=document.getElementById("txtPoliticas");
+                var tipoSeguro=document.getElementById("txtTipoDeSeguro").value;
 
+            console.log(tipoSeguro)
             if(PacienteApellidos==="" || apellidoMaterno==="" || apellidoPaterno==="" || TipoDocumento==="" || NumeroDocumento==="" || Celular==="" || Correo===""){
                 alert("Ingresar todos los campos solicitados")
                 return
@@ -346,6 +366,17 @@
 
                  alert("Ingresar el numero de Dni correcto")
                  return;
+            }
+
+            if(!Politicas.checked) {
+                alert("Tienes que aceptar las Politicas")
+
+                return
+            }
+            if(tipoSeguro===""){
+                alert("Selecionar el tipo de seguro")
+
+                return
             }
                 const Cita={
                     id_Horario,
@@ -427,25 +458,11 @@
 
                
                     LimpiarDatos();               
-                    showView('specialties')
+                    showView('specialties',"Selecione una especialidad")
                 
                    }
 
                 })
-
-
-              const resultado = await fetch("https://api-rest-ventas-production.up.railway.app/EnviarCorreo", {
-                method: "POST",
-                body: JSON.stringify(Cita),
-                headers: {
-                    "Content-Type": "application/json"
-                }   
-                }).then(()=>{
-                    alert("Se ha enviado correctamnete al correo")
-                })
-              
-                
-
             
                 }
 
