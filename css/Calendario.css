@@ -78,9 +78,40 @@
   }
 }
 
-@media(max-width: 360px){
+@media screen and (max-width: 480px) {
+  .schedule-container {
+    padding: 5px;
+    overflow-x: hidden;
+  }
+  
+  .calendario {
+    width: calc(100% - 10px);
+    max-width: 100%;
+    margin: 0 auto;
+  }
+  
+  .calendario-header {
+    padding: 6px;
+  }
+  
+  .calendario-header button {
+    font-size: 1.2em;
+    padding: 3px 6px;
+  }
+  
+  #month-year {
+    font-size: 1em;
+  }
+  
+  .calendar-weekdays div, .dias-calendario div {
+    padding: 8px 4px;
+    font-size: 0.9em;
+  }
+}
 
-    .calendar-weekdays div, .dias-calendario div {
+/* Para pantallas muy pequeñas */
+@media screen and (max-width: 360px) {
+  .calendar-weekdays div, .dias-calendario div {
     padding: 6px 2px;
     font-size: 0.85em;
   }
@@ -88,13 +119,9 @@
   .calendario-header button {
     font-size: 1em;
   }
-   .calendario {
-    max-width: 100%;
-    margin:0 auto;
-  }
   
   #month-year {
     font-size: 0.9em;
   }
+
 }
-  
