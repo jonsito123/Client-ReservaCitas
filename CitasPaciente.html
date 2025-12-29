@@ -141,7 +141,7 @@
                         <option value="1">
                          Particular                       
                         </option>
-                        <option value="2">EPS</option>
+                        <option value="0">EPS</option>
                     </select>
                     </div>
 
@@ -350,9 +350,10 @@
                 var Celular=document.getElementById("txtCelular").value
                 var Correo=document.getElementById("txtCorreo").value
                 var Politicas=document.getElementById("txtPoliticas");
-                var tipoSeguro=document.getElementById("txtTipoDeSeguro").value;
+                var TipoSeguro=parseInt(document.getElementById("txtTipoDeSeguro").value);
 
-            console.log(tipoSeguro)
+          
+             
             if(PacienteApellidos==="" || apellidoMaterno==="" || apellidoPaterno==="" || TipoDocumento==="" || NumeroDocumento==="" || Celular==="" || Correo===""){
                 alert("Ingresar todos los campos solicitados")
                 return
@@ -373,7 +374,7 @@
 
                 return
             }
-            if(tipoSeguro===""){
+            if(TipoSeguro===""){
                 alert("Selecionar el tipo de seguro")
 
                 return
@@ -385,7 +386,8 @@
                     TipoDocumento,
                     NumeroDocumento,
                     Celular,
-                    Correo
+                    Correo,
+                    TipoSeguro
                 }
             
 
@@ -476,7 +478,7 @@
 
         } catch(Error){
 
-        alert("Error",Error)
+         window.alert("Existen errores:", Error.message);
         }       
                 
                 
