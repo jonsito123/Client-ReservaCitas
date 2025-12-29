@@ -104,7 +104,7 @@
   }
   
   .calendar-weekdays div, .dias-calendario div {
-    padding: 8px 4px;
+    padding:3px 3px;
     font-size: 0.9em;
   }
 }
