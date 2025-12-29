@@ -352,7 +352,7 @@
                 var Politicas=document.getElementById("txtPoliticas");
                 var TipoSeguro=parseInt(document.getElementById("txtTipoDeSeguro").value);
 
-          
+            console.log(TipoSeguro)
              
             if(PacienteApellidos==="" || apellidoMaterno==="" || apellidoPaterno==="" || TipoDocumento==="" || NumeroDocumento==="" || Celular==="" || Correo===""){
                 alert("Ingresar todos los campos solicitados")
@@ -374,7 +374,7 @@
 
                 return
             }
-            if(TipoSeguro===""){
+            if(TipoSeguro===""  && Number.isNaN(TipoSeguro)){
                 alert("Selecionar el tipo de seguro")
 
                 return
