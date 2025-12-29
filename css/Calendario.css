@@ -54,11 +54,11 @@
 }
 
 @media (max-width: 480px) {
-  .calendario {
-    max-width: 95%; 
-    margin: 10px auto;
-  }
   
+   .calendario {
+    max-width: 100%;
+    margin:0 auto;
+  }
   .calendario-header {
     padding: 8px;
   }
@@ -87,6 +87,10 @@
   
   .calendario-header button {
     font-size: 1em;
+  }
+   .calendario {
+    max-width: 100%;
+    margin:0 auto;
   }
   
   #month-year {
