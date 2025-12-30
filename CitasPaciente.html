@@ -300,6 +300,10 @@
             document.getElementById(`${viewName}-view`).classList.add('active');
 
             document.getElementById("titulo").textContent=pagina
+
+            currentMonth = new Date().getMonth();
+            currentYear = new Date().getFullYear();
+
         }
 
 
@@ -462,7 +466,7 @@
                
                     LimpiarDatos();               
                     showView('specialties',"Selecione una especialidad")
-                
+                   
                    }
 
                 })
@@ -650,18 +654,21 @@
         if (currentMonth < 0) {
             currentMonth = 11;
             currentYear--;
+           
         }
-        renderCalendar(currentMonth, currentYear,Medico);
+         renderCalendar(currentMonth, currentYear,Medico);
     });
 
     nextMonthBtn.addEventListener('click', () => {
-       
+        
         currentMonth++;
         if (currentMonth > 11) {
             currentMonth = 0;
             currentYear++;
+          
         }
-        renderCalendar(currentMonth, currentYear,Medico);
+        console.log(currentMonth,currentYear)
+        renderCalendar(currentMonth, currentYear,Medico);  
         
     });
     
@@ -683,7 +690,7 @@
         body: JSON.stringify(data)
         });
         const resultadoFinal=await resultado.json();
-        console.log(resultadoFinal)
+        
         /*resetar el html*/
        
         resultadoFinal.forEach((horario)=>{
