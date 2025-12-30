@@ -1,6 +1,7 @@
 
 .calendario {
-    width: 350px;
+    width: 100%;
+    max-width: 350px;
     background-color: #fff;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
@@ -123,5 +124,27 @@
   #month-year {
     font-size: 0.9em;
   }
+
+}
+
+@media (max-width:360px) {
+ 
+
+    .doctor-horarios {
+        display: grid;
+        grid-template-columns: 1fr;
+
+    }
+    .schedule-container {
+        text-align: center;
+        width: 100%;
+        padding: 0 5px;      
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+   
+
+ 
 
 }
