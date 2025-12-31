@@ -378,7 +378,7 @@
 
                 return
             }
-            if(TipoSeguro===""  && Number.isNaN(TipoSeguro)){
+            if(TipoSeguro===""  || Number.isNaN(TipoSeguro)){
                 alert("Selecionar el tipo de seguro")
 
                 return
@@ -404,6 +404,7 @@
             });
 
             const result = await response.json();
+            console.log(result)
             console.log(result)
                 if(result.id>0) {
                  
