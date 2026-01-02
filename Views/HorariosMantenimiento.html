@@ -322,7 +322,7 @@
     var resultadosHorariosMedicos=null;
     async function ObtenerCitas(){
 
-        const data=await fetch("https://api-rest-ventas-production.up.railway.app/api/Horarios");
+        const data=await fetch("https://api-rest-ventas.vercel.app/api/Horarios");
         const resultado=await data.json();
         return resultado  
     }
@@ -413,7 +413,7 @@
 
  async  function EditarCampos(IdHorario){
     
-    const data=await fetch(`https://api-rest-ventas-production.up.railway.app/api/Horario/${IdHorario}`)
+    const data=await fetch(`https://api-rest-ventas.vercel.app/api/Horario/${IdHorario}`)
     const horario=await data.json();
  
     const horarioFinal=horario[0]
@@ -448,7 +448,7 @@ function newNuevoHorario(event){
  
  async function MostrarEspecialidad(){
 
-      var result= await fetch("https://api-rest-ventas-production.up.railway.app/api/Especialidades")
+      var result= await fetch("https://api-rest-ventas.vercel.app/api/Especialidades")
       var especialidades=await result.json();
       var cbEspecialidades=document.getElementById("especialidad")
       cbEspecialidades.innerHTML=""
@@ -469,7 +469,7 @@ function newNuevoHorario(event){
 
         var EspecialidadDescripcion=event.target.options[cbEspecialidades.selectedIndex].text
         var IdEspecialidad=parseInt(event.target.value)
-        const response = await fetch(`https://api-rest-ventas-production.up.railway.app/api/MedicosEspecialidad/${IdEspecialidad}`);
+        const response = await fetch(`https://api-rest-ventas.vercel.app/api/MedicosEspecialidad/${IdEspecialidad}`);
         const medicosEspecialidad=await response.json();
 
         
@@ -508,7 +508,7 @@ function newNuevoHorario(event){
             HoraFin
          }
          
-            const response = await fetch("https://api-rest-ventas-production.up.railway.app/api/Horario", {
+            const response = await fetch("https://api-rest-ventas.vercel.app/api/Horario", {
                 method: "POST",
                 body: JSON.stringify(Horario),
                 headers: {
@@ -568,7 +568,7 @@ function newNuevoHorario(event){
         Cupos
      }
 
-     var data=await fetch(`https://api-rest-ventas-production.up.railway.app/api/Horario/${IdHorarioActualizar}`,{
+     var data=await fetch(`https://api-rest-ventas.vercel.app/api/Horario/${IdHorarioActualizar}`,{
        method: "PUT",
         body: JSON.stringify(newHorario),
         headers: {
