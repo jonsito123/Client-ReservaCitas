@@ -174,7 +174,7 @@
             const gridEspecialidades = document.getElementById('grid-especialidades');
             /*consuta fetch API*/
 
-            fetch("https://api-rest-ventas.vercel.app/api/Especialidades")
+            fetch("https://api-rest-ventas.onrender.com/api/Especialidades")
                 
                 .then(response => response.json())
                 .then(data => {
@@ -199,7 +199,7 @@
         var doctores = document.getElementById('doctors-grid');
          doctores.innerHTML=""
         try {
-            const response = await fetch(`https://api-rest-ventas.vercel.app/api/MedicosEspecialidad/${id}`);
+            const response = await fetch(`https://api-rest-ventas.onrender.com/api/MedicosEspecialidad/${id}`);
             /*esperar que se convierta en json ya que es un fucnion asincrona*/
 
             const data = await response.json();
@@ -249,7 +249,7 @@
       async function SelecionarDoctor(IdDoctor){
              
         
-           var data= await fetch(`https://api-rest-ventas.vercel.app/api/HorariosMedico/${IdDoctor}`)
+           var data= await fetch(`https://api-rest-ventas.onrender.com/api/HorariosMedico/${IdDoctor}`)
            var result= await data.json();
            
             MostrarCalendario(result,IdDoctor);
@@ -394,7 +394,7 @@
                     TipoSeguro
                 }
 
-            const response = await fetch("https://api-rest-ventas.vercel.app/api/Citas", {
+            const response = await fetch("https://api-rest-ventas.onrender.com/api/Citas", {
                 method: "POST",
                 body: JSON.stringify(Cita),
                 headers: {
@@ -581,7 +581,7 @@
             // Get the number of days in the month
             const diasMesActual = new Date(year, month + 1, 0).getDate();
         
-            const obtenerFecha=await fetch(`https://api-rest-ventas.vercel.app/api/HorariosMedico/${IdMedico}`)
+            const obtenerFecha=await fetch(`https://api-rest-ventas.onrender.com/api/HorariosMedico/${IdMedico}`)
             
             const data=await obtenerFecha.json()
             
