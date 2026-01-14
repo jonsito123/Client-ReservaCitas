@@ -1,3 +1,6 @@
+/*display*/
+
+
 .schedule-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -163,3 +166,19 @@
 
 
 
+/*footer*/
+.footer {
+    margin-top: 10px;
+    position:fixed;
+    text-align:center;
+    margin-top:10px;
+    max-width: 1260px;
+    margin: auto;
+    
+    
+}
+.footer p {
+    
+    overflow-wrap: break-word;
+
+}

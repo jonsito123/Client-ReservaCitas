@@ -71,6 +71,10 @@
             </div>
         </div>
     </div>
+    <footer class="footer">
+       <p class="copyLine">Copyright © 2026 Clínica Los Fresnos. Todos los derechos reservados</p>
+    </footer>
+   </div>
     
 
     <div class="modal" id="modalPaciente">
@@ -588,7 +592,7 @@
                 
                 const day = document.createElement('div');
                 const FechaCalendario=new Date(year,month,i)
-      
+                
                 day.textContent = i;
                 
                 FechasCitaMedicos.forEach((fechaMedico)=>{
@@ -597,8 +601,7 @@
                     la derecha entocnes tiene que cojees este comando*/
                     
                     let Fecha=FechaCalendario.toISOString().split("T")[0]
-                   
-
+                    
                     if(fechaMedico===Fecha) {
                        
                        day.style.backgroundColor = "#4CAF50";
@@ -608,8 +611,15 @@
                        day.style.boxShadow = "0 4px 8px rgba(76, 175, 80, 0.3)";
                        day.style.transform = "scale(1.05)";
                        day.style.cursor = "pointer";
-                       day.addEventListener("click",function(event){
                        
+                       day.addEventListener("click",function(event){
+
+                        
+                        document.querySelectorAll(".dia").forEach((element)=>{
+                           element.classList.remove("dia")
+                           
+                        })
+                         this.classList.add("dia")                     
                        ObtenerCitasMedicos(Fecha,IdMedico)
                        event.preventDefault();
                         })
@@ -619,7 +629,8 @@
                 })    
             
                 diasCalendarios.appendChild(day);
-            
+                
+              
             }
         }
     }
@@ -745,7 +756,6 @@
     });
 
 </script>
-
 
 </body>
 </html>
