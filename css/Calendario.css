@@ -149,8 +149,10 @@
 
 }
 
-.calendario .dia{
+ .dia{
     font-weight: bolder;
     font-size: 1.5rem;
-    
+    border-radius: 8px;
+    transform: translateY(-3px) scale(1.03);
 }
+ 
