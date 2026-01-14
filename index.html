@@ -605,6 +605,7 @@
                     if(fechaMedico===Fecha) {
                        
                        day.style.backgroundColor = "#4CAF50";
+                       day.classList.add("dias")
                        day.style.color = "white";
                        day.style.fontWeight = "bold";
                        day.style.borderRadius = "8px";
@@ -614,12 +615,14 @@
                        
                        day.addEventListener("click",function(event){
 
-                        
-                        document.querySelectorAll(".dia").forEach((element)=>{
-                           element.classList.remove("dia")
+                         
+                        document.querySelectorAll(".dias").forEach((element)=>{
+                           
+                           element.style.color = "white";
                            
                         })
-                         this.classList.add("dia")                     
+                         
+                        this.style.color="red"                
                        ObtenerCitasMedicos(Fecha,IdMedico)
                        event.preventDefault();
                         })
