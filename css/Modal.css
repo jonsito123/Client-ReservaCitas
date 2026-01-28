@@ -1,5 +1,8 @@
 
 
+.seguros {
+  display: none;
+}
 .checkbox {
     display: flex;  
     align-items: center;

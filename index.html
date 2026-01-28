@@ -154,6 +154,13 @@
                         <option value="0">EPS</option>
                     </select>
                     </div>
+                    <div class="seguros" id="seguros">
+                        <label>MAPFRE</label>
+                         <label>RIMAC</label>
+                         <label>PACIFICO</label>
+                    </div>
+
+                     
 
                 </div>
                
@@ -757,6 +764,22 @@
             this.classList.remove('activar');
         }
     });
+
+
+    document.getElementById("txtTipoDeSeguro").addEventListener("change",function(e){
+
+
+
+
+        if(parseInt(e.target.value)===0){
+
+            document.getElementById("seguros").classList.remove("seguros")
+        }
+        else {
+            document.getElementById("seguros").classList.add("seguros")
+        }
+        e.preventDefault();
+    })
 
 </script>
 
